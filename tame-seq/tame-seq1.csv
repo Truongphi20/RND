@@ -1,0 +1,17 @@
+id,stage,name,sbefore,safter,utool,stool,purpose
+1,Primer design,Identification of HPV genomes,,2,PaVE database,,Retrieve reference genome
+2,,Alignment of HPV genomes,2,4,ClustalO,,Aligning HPV sequences
+3,,Degenerate consensus sequences,3,5,HPV CLC sequence viewer v7.7.1,,"Make concensus sequence of each type HPV "
+4,,Primer design,4,6,Primer3,,Designing primer
+5,,Final evaluation of the primers,5,,handle,,Adding 5' adapter to primer
+6,Laboratory,Nextera tagmentation,,7,DNA Clean & Concentrator,,Fragment DNA sample
+7,,PCR amplification,"5,6",8,Qiagen Multiplex PCR,,Amplifying to create library
+8,,Sequencing library pool,7,9,bean & bioanalyzer,,"Combine all needs "
+9,,Illumina sequencing,8,,MiSeq platform,,Sequencing
+10,Bioinformatics,FastQC,9,,,,
+11,,Trimming,9,12,cutadapt,,"Trimming primer, adapter, quality trimming"
+12,,Mapping: HISAT2,11,"13,14","HISAT2, PaVE database",,Remove mapping human (GRCh38/hg38) and take HPV reference genome
+13,,Mapping: LAST,12,16,LAST,,Mapping human and HPV reference genome
+14,,Coverage distribution,12,,Pysam,,Statistic and sequencing coverage collection
+15,,Sequence variation analysis,12,,R script,,Downstream analysis
+16,,Integration analysis,"12,13",,,,Summary
